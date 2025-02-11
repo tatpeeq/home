@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppSolutions - Mobile App Development</title>
+    <meta name="description"
+        content="AppSolutions offers professional mobile app development services to transform your ideas into reality. Specializing in business, e-commerce, and social apps.">
+    <link rel="icon" href="web_icon/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="web_icon/apple-touch-icon.png">
+    <meta name="google-site-verification" content="XVud6-PKmwSqxKBFSzk9TYPXhGc-bAXyASk9xFbzPkA" />
+
+    <!-- Open Graph Meta Tags for Facebook and other social platforms -->
+    <meta property="og:title" content="AppSolutions - Mobile App Development">
+    <meta property="og:description"
+        content="AppSolutions offers professional mobile app development services to transform your ideas into reality. Specializing in business, e-commerce, and social apps.">
+    <meta property="og:image" content="images/33.png">
+    <meta property="og:url" content="https://3bdelrahman-ibrahim.github.io/Portfolio">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:title" content="AppSolutions - Mobile App Development">
+    <meta name="twitter:description"
+        content="AppSolutions offers professional mobile app development services to transform your ideas into reality. Specializing in business, e-commerce, and social apps.">
+    <meta name="twitter:image" content="images/33.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Optional: Add additional metadata -->
+    <meta name="author" content="AppSolutions">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.8.0/firebase-app.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.8.0/firebase-database.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --blue: #4F93FF;
+            --purple: #A100FF;
+            --white: #FFFFFF;
+            --black: #000000;
+            --gray: #F5F5F5;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--black);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple);
+        }
+
+        .navbar.scrolled .logo,
+        .navbar.scrolled .nav-links a {
+            color: black !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            padding: 8rem 5% 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            color: var(--bg-primary);
+        }
+
+        .hero-image {
+            text-align: right;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            color: var(--white);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--white);
+            color: var(--purple);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 6rem 5% 2rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .hero-image {
+                order: 2;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Apps Preview Section */
+        .apps-preview {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--purple);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .app-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .app-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .app-content {
+            padding: 1.5rem;
+        }
+
+        .app-content h3 {
+            color: var(--blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 5rem 5%;
+            background: var(--gray);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stars {
+            color: var(--purple);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .reviewer-name {
+            color: var(--blue);
+            font-weight: bold;
+        }
+
+        /* Contact Form Section */
+        .contact {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--purple);
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--blue);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">حلول التطبيقات</a>
+            <div class="nav-links">
+                <a href="#apps">تطبيقاتنا</a>
+                <a href="#reviews">آراء العملاء</a>
+                <a href="#contact">تواصل معنا</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>حوّل أفكارك إلى تطبيقات ناجحة</h1>
+            <p>تطوير احترافي لتطبيقات الهواتف المحمولة</p>
+            <a href="#contact" class="cta-button">ابدأ الآن</a>
+        </div>
+        <div class="hero-image">
+            <img src="/api/placeholder/600/400" alt="تطوير تطبيقات الهاتف">
+        </div>
+    </section>
+
+    <!-- قسم  التطبيقات -->
+    <section id="apps" class="apps-preview">
+        <h2 class="section-title">تطبيقاتنا</h2>
+        <div class="apps-grid">
+            <div class="app-card">
+                <img src="/api/placeholder/400/300" alt="تطبيقات الأعمال" class="app-image">
+                <div class="app-content">
+                    <h3>حلول الأعمال</h3>
+                    <p>تطبيقات متطورة للشركات والمؤسسات</p>
+                </div>
+            </div>
+            <div class="app-card">
+                <img src="/api/placeholder/400/300" alt="تطبيقات التجارة الإلكترونية" class="app-image">
+                <div class="app-content">
+                    <h3>تطبيقات المتاجر</h3>
+                    <p>تطبيقات تسوق إلكترونية مخصصة لعملائك</p>
+                </div>
+            </div>
+            <div class="app-card">
+                <img src="/api/placeholder/400/300" alt="تطبيقات التواصل الاجتماعي" class="app-image">
+                <div class="app-content">
+                    <h3>تطبيقات التواصل</h3>
+                    <p>تطبيقات مخصصة للتواصل وبناء المجتمعات</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الإعلانات -->
+    <section id="ads" class="ads">
+        <h2 class="section-title">احصل على تطبيقك الآن!</h2>
+        <p>هل لديك فكرة لتطبيق؟ نحن نساعدك في تنفيذها باحترافية! اتصل بنا الآن لتحصل على أفضل الأسعار.</p>
+        <a href="#contact" class="cta-button">احجز استشارتك المجانية</a>
+    </section>
+
+    <!-- قسم آراء العملاء -->
+    <section id="reviews" class="reviews">
+        <h2 class="section-title">آراء عملائنا</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"خدمة ممتازة وتطبيق احترافي غيّر طريقة عمل شركتنا بالكامل."</p>
+                <div class="reviewer-name">أحمد محمود</div>
+                <div class="reviewer-title">مدير شركة برمجيات</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"فريق عمل محترف والتطبيق كان أكثر مما توقعنا!"</p>
+                <div class="reviewer-name">منى خالد</div>
+                <div class="reviewer-title">عميله مميزه</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">تواصل معنا</h2>
+        <div class="form-container">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">الاسم</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">رسالتك</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">إرسال</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <p>&copy; 2025 حلول التطبيقات. جميع الحقوق محفوظة.</p>
+    </footer>
+    <script type="module">
+        // Import Firebase SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA5I1AlqhGACpPecU8Ly6137txxXvdcrac",
+            authDomain: "abdelrahman-ibrahim-info.firebaseapp.com",
+            databaseURL: "https://abdelrahman-ibrahim-info-default-rtdb.firebaseio.com",
+            projectId: "abdelrahman-ibrahim-info",
+            storageBucket: "abdelrahman-ibrahim-info.firebasestorage.app",
+            messagingSenderId: "326830243477",
+            appId: "1:326830243477:web:1f7d646f95d9cc3839a59c",
+            measurementId: "G-GBSD7BNLV9"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Get the form and message input
+
+        // Handle form submission
+        const contactForm = document.getElementById("contactForm");
+        const nameInput = document.getElementById("name");
+        const phoneInput = document.getElementById("phone");
+        const messageInput = document.getElementById("message");
+
+        // Handle form submission
+        document.addEventListener("DOMContentLoaded", function () {
+            const contactForm = document.getElementById("contactForm");
+            const nameInput = document.getElementById("name");
+            const phoneInput = document.getElementById("phone");
+            const messageInput = document.getElementById("message");
+
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+
+                const name = nameInput.value.trim();
+                const phone = phoneInput.value.trim();
+                const message = messageInput.value.trim();
+
+                if (!name || !phone || !message) {
+                    alert("Please fill in all fields before submitting.");
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit';
+                    return;
+                }
+
+                addDoc(collection(db, "TatpeeqTech-Messages"), {
+                    name: name,
+                    phone: phone,
+                    message: message,
+                    timestamp: serverTimestamp()
+                })
+                    .then(() => {
+                        alert("تم إرسال الرسالة بنجاح!");
+                        alert("حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.");
+
+
+                        contactForm.reset();
+                    })
+                    .catch((error) => {
+                        alert("حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.");
+                        alert("Error sending message. Please try again.");
+                    })
+                    .finally(() => {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Submit';
+                    });
+            });
+        });
+
+
+
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+
+            if (window.scrollY > (window.innerHeight-50)) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>
