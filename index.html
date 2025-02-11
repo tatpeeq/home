@@ -35,6 +35,7 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         /* Reset & Base Styles */
@@ -42,7 +43,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Cairo', sans-serif;
+
         }
 
         :root {
@@ -51,22 +53,26 @@
             --white: #FFFFFF;
             --black: #000000;
             --gray: #F5F5F5;
+            --graydark: #2c2c2c;
         }
 
         body {
             line-height: 1.6;
             color: var(--black);
+            font-family: 'Cairo', sans-serif;
+
         }
 
         /* Navigation */
         .navbar {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             padding: 1.2rem 5%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+
         }
 
         .nav-content {
@@ -82,6 +88,8 @@
             font-size: 1.8rem;
             font-weight: bold;
             text-decoration: none;
+            transition: color 0.6s ease-in-out;
+
         }
 
         .nav-links {
@@ -103,7 +111,10 @@
         .navbar.scrolled .logo,
         .navbar.scrolled .nav-links a {
             color: black !important;
+            transition: color 0.6s ease-in-out;
+
         }
+     
 
         /* Hero Section */
         .hero {
@@ -124,11 +135,7 @@
             text-align: right;
         }
 
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
+
 
         .hero h1 {
             font-size: 3.5rem;
@@ -223,7 +230,7 @@
 
         .app-image {
             width: 100%;
-            height: 200px;
+            aspect-ratio: 1.3;
             object-fit: cover;
         }
 
@@ -334,6 +341,70 @@
             text-align: center;
             padding: 2rem 5%;
         }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+        }
+
+        .bouncing-image {
+            animation: bounce 2s ease-in-out infinite;
+            max-width: 100%;
+        }
+
+        /* Keyframes for bouncing effect */
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+                /* Bounce up */
+            }
+
+            60% {
+                transform: translateY(-10px);
+                /* Bounce down */
+            }
+        }
+
+        .coming-soon {
+            color: var(--graydark);
+            text-align: center;
+            font-weight: 700;
+            padding: 1rem 1%;
+        }    .download-links {
+    display: flex;
+    gap: 10px;
+     padding: 20px 5px ;
+    justify-content: space-around;
+}
+.download-icon {
+    width: 100px;
+    height: 35px;
+        border-radius: 7px ;
+}
+.logo-icon {
+    width: 50px;
+    height: 50px;
+        border-radius: 7px ;
+        filter: brightness(0) saturate(100%) invert(1);
+        transition: filter 0.6s ease-in-out
+
+}
+.navbar.scrolled .logo-icon {
+    filter: none;
+    transition: filter 0.6s ease-in-out
+
+}
     </style>
 </head>
 
@@ -341,7 +412,9 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-content">
-            <a href="#" class="logo">حلول التطبيقات</a>
+            <a href="#" class="logo">
+                <img src="images/logo2.png" alt="Logo" class="logo-icon">
+            </a>
             <div class="nav-links">
                 <a href="#apps">تطبيقاتنا</a>
                 <a href="#reviews">آراء العملاء</a>
@@ -355,11 +428,12 @@
         <div class="hero-content">
             <h1>حوّل أفكارك إلى تطبيقات ناجحة</h1>
             <p>تطوير احترافي لتطبيقات الهواتف المحمولة</p>
-            <a href="#contact" class="cta-button">ابدأ الآن</a>
+            <a href="#contact" class="cta-button">احجز استشارتك المجانية</a>
         </div>
         <div class="hero-image">
-            <img src="/api/placeholder/600/400" alt="تطوير تطبيقات الهاتف">
+            <img src="images/aa.png" alt="تطوير تطبيقات الهاتف" class="bouncing-image">
         </div>
+
     </section>
 
     <!-- قسم  التطبيقات -->
@@ -367,35 +441,53 @@
         <h2 class="section-title">تطبيقاتنا</h2>
         <div class="apps-grid">
             <div class="app-card">
-                <img src="/api/placeholder/400/300" alt="تطبيقات الأعمال" class="app-image">
+                <img src="images/1.png" alt="Salam Space" class="app-image">
                 <div class="app-content">
-                    <h3>حلول الأعمال</h3>
-                    <p>تطبيقات متطورة للشركات والمؤسسات</p>
+                    <h3>Salam Space</h3>
+                    <p>تطبيق إسلامي لتقديم خدمات سلامية</p>
+                    <div class="download-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.arab.salamspace" target="_blank" class="download-link">
+                            <img src="images/gp.png" alt="Android Download" class="download-icon">
+                         </a>
+                        <a href="https://apps.apple.com/app/id6740785701" target="_blank" class="download-link">
+                            <img src="images/ios.png" alt="iOS Download" class="download-icon">
+                         </a>
+                    </div>
                 </div>
             </div>
             <div class="app-card">
-                <img src="/api/placeholder/400/300" alt="تطبيقات التجارة الإلكترونية" class="app-image">
+                <img src="images/2.png" alt="تطبيقات التجارة الإلكترونية" class="app-image">
                 <div class="app-content">
-                    <h3>تطبيقات المتاجر</h3>
-                    <p>تطبيقات تسوق إلكترونية مخصصة لعملائك</p>
-                </div>
+                    <h3>تطبيقات المطاعم</h3>
+                    <p>تطبيقات مخصصة للمطاعم لتسهيل الطلبات</p>
+                    <div class="download-links">
+                        <a  class="download-link" onclick="showAlert('جوجل بلاي')">
+                            <img src="images/gp.png" alt="Android Download" class="download-icon">
+                        </a>
+                        <a   class="download-link" onclick="showAlert('اب ستور')">
+                            <img src="images/ios.png" alt="iOS Download" class="download-icon">
+                        </a>
+                    </div>               </div>
             </div>
             <div class="app-card">
-                <img src="/api/placeholder/400/300" alt="تطبيقات التواصل الاجتماعي" class="app-image">
+                <img src="images/3.png" alt="تطبيقات التواصل الاجتماعي" class="app-image">
                 <div class="app-content">
-                    <h3>تطبيقات التواصل</h3>
-                    <p>تطبيقات مخصصة للتواصل وبناء المجتمعات</p>
+                    <h3>تطبيقات مخصصه</h3>
+                    <p>تطبيقات مخصصة لك حسب الاحتياجات</p>
+                    <p> </p>
+
+                    <p class="coming-soon">يتم النشر حسب رغبك</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- قسم الإعلانات -->
-    <section id="ads" class="ads">
+    <!-- <section id="ads" class="ads">
         <h2 class="section-title">احصل على تطبيقك الآن!</h2>
         <p>هل لديك فكرة لتطبيق؟ نحن نساعدك في تنفيذها باحترافية! اتصل بنا الآن لتحصل على أفضل الأسعار.</p>
         <a href="#contact" class="cta-button">احجز استشارتك المجانية</a>
-    </section>
+    </section> -->
 
     <!-- قسم آراء العملاء -->
     <section id="reviews" class="reviews">
@@ -490,7 +582,7 @@
                 const message = messageInput.value.trim();
 
                 if (!name || !phone || !message) {
-                    alert("Please fill in all fields before submitting.");
+                    alert("مطلوب الاسم ورقم الهاتف والرسالة.");
                     submitButton.disabled = false;
                     submitButton.textContent = 'Submit';
                     return;
@@ -504,14 +596,12 @@
                 })
                     .then(() => {
                         alert("تم إرسال الرسالة بنجاح!");
-                        alert("حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.");
 
 
                         contactForm.reset();
                     })
                     .catch((error) => {
                         alert("حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.");
-                        alert("Error sending message. Please try again.");
                     })
                     .finally(() => {
                         submitButton.disabled = false;
@@ -523,12 +613,16 @@
 
 
     </script>
-
+<script>
+    function showAlert(platform) {
+        alert('سيتم النشر قريبا على ' + platform);
+    }
+</script>
     <script>
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
 
-            if (window.scrollY > (window.innerHeight-50)) {
+            if (window.scrollY > (window.innerHeight - 50)) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
