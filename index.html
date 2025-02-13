@@ -782,6 +782,10 @@
                 color: var(--white);
             }
         }
+        .footer-contact a{
+                text-decoration: none;
+                color: var(--white);
+            }
     </style>
 </head>
 
@@ -981,10 +985,17 @@
                 <a href="#contact">تواصل معنا</a>
             </div>
             <div class="footer-contact">
-                <p><i class="fas fa-phone"></i> 010-9160-2558</p>
-                <p><i class="fas fa-envelope"></i> 3bdelrahman.ibrahim@gmail.com</p>
+                <p onclick="copyToClipboard('010-9160-2558')">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:01091602558">010-9160-2558</a>
+                </p>
+                <p onclick="copyToClipboard('3bdelrahman.ibrahim@gmail.com')">
+                    
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:3bdelrahman.ibrahim@gmail.com">3bdelrahman.ibrahim@gmail.com</a>
+                </p>
             </div>
-            <div class="footer-social">
+                        <div class="footer-social">
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1114,6 +1125,15 @@
 
     </script>
 
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Copied: " + text);
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+        }
+    </script>
 </body>
 
 </html>
