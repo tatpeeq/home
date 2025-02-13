@@ -897,9 +897,9 @@
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
 
-            if ((window.scrollY > (window.outerHeight -80))&& window.outerWidth > 968 ) {
+            if ((window.scrollY > (window.innerHeight -80))&& window.innerWidth > 968 ) {
                 navbar.classList.add('scrolled');
-            } else if ((window.scrollY > (window.outerHeight +200) )&& window.outerWidth < 967) {
+            } else if ((window.scrollY > (window.innerHeight +200) )&& window.innerWidth < 967) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
