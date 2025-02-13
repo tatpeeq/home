@@ -81,7 +81,6 @@
             top: 20px;
             right: 5%;
             z-index: 1000;
-            overflow: hidden;
             width: 90%;
             margin: 20px, 50px;
             padding: 20px, 50px;
@@ -96,7 +95,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-
             color: #f2f2f2;
             text-align: center;
             text-decoration: none;
@@ -104,8 +102,7 @@
         }
 
         .navbar a:hover {
-            background-color: #575757;
-            color: white;
+             color: white;
         }
 
         .nav-content {
@@ -113,6 +110,7 @@
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
+
         }
 
         .logo {
@@ -136,9 +134,7 @@
             transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--purple);
-        }
+    
 
         .navbar.scrolled .logo,
         .navbar.scrolled .nav-links a {
@@ -236,7 +232,8 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
             color: var(--purple);
         }
 
@@ -278,8 +275,7 @@
         /* Reviews Section */
         .reviews {
             padding: 5rem 5%;
-            background: var(--gray);
-        }
+         }
 
         .reviews-grid {
             display: grid;
@@ -315,8 +311,9 @@
         /* Contact Form Section */
         .contact {
             padding: 5rem 5%;
-            background: var(--white);
-        }
+            background: var(--gray);
+        } 
+   
 
         .form-container {
             max-width: 600px;
@@ -478,6 +475,7 @@
                 border-radius: 10px;
                 padding: 1rem;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                
             }
 
             .nav-links a {
@@ -608,7 +606,137 @@
                 width: 65px;
                 height: 65px;
             }
+            .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 10%;
+    background: white;
+    width: 80%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+}
+
+ 
+
+
+.nav-links a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.nav-links.show {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
         }
+        
+        #services {
+            padding: 5rem 5%;
+            background: var(--gray);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 16px;
+    direction: rtl; /* دعم العربية */
+}
+
+/* تنسيق المحتوى الداخلي للفوتر */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 10px auto; /* Improved margin syntax */
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+}
+
+/* تنسيق الروابط */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px ;
+    justify-content: center; /* Center links for better responsiveness */
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px ;
+    margin: 0 15px;
+    transition: color 0.3s ease; /* Specify transition property */
+}
+
+.footer-links a:hover {
+    color: #f39c12;
+}
+
+/* تنسيق معلومات الاتصال */
+.footer-contact p {
+     margin: 15px;
+    font-weight: bold;
+}
+
+/* تنسيق أيقونات التواصل الاجتماعي */
+.footer-social {
+    margin: 10px ;
+    display: flex;
+    justify-content: center; /* Center social icons */
+}
+
+.footer-social a {
+    margin: 10px ;
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Specify transition properties */
+}
+
+.footer-social a:hover {
+    color: #f39c12;
+    transform: scale(1.1);
+}
+
+/* تنسيق نص الحقوق */
+.footer-text {
+    margin-top: 15px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links, .footer-social {
+        margin-top: 10px;
+    }
+
+    .footer-links a {
+        margin: 0 10px; /* Reduce margin for smaller screens */
+    }
+}
+
     </style>
 </head>
 
@@ -753,7 +881,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- قسم الإعلانات -->
     <!-- <section id="ads" class="ads">
         <h2 class="section-title">احصل على تطبيقك الآن!</h2>
@@ -811,7 +939,25 @@
     </div>
     <!-- الفوتر -->
     <footer class="footer">
-        <p>&copy; 2025 حلول التطبيقات. جميع الحقوق محفوظة.</p>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#apps">تطبيقاتنا</a>
+                <a href="#services">خدماتنا</a>
+                <a href="#reviews">آراء العملاء</a>
+                <a href="#contact">تواصل معنا</a>
+            </div>
+            <div class="footer-contact">
+                <p><i class="fas fa-phone"></i> 010-9160-2558</p>
+                <p><i class="fas fa-envelope"></i> 3bdelrahman.ibrahim@gmail.com</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <p class="footer-text">&copy; 2025 حلول التطبيقات. جميع الحقوق محفوظة.</p>
     </footer>
     <script type="module">
         // Import Firebase SDK
@@ -911,15 +1057,23 @@
         });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('nav-links');
+       document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
 
-            hamburger.addEventListener('click', function () {
-                hamburger.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
+    // فتح وإغلاق القائمة عند الضغط على أيقونة الهامبرغر
+    hamburger.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+
+    // إغلاق القائمة عند النقر على أي رابط داخلها
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("show");
         });
+    });
+});
+
     </script>
 </body>
 
