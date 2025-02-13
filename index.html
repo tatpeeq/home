@@ -33,6 +33,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
@@ -467,7 +468,110 @@
                 transform: rotate(-45deg) translate(5px, -5px);
             }
         }
-       
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn a {
+            width: 80px;
+            height: 80px;
+            background-color: #25D366;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 4;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-btn a:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn i {
+            color: white;
+            font-size: 40px;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #25D366;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: wave 2s infinite;
+            opacity: 0;
+        }
+
+        .c1 {
+            width: 120px;
+            height: 120px;
+            animation-delay: 0s;
+        }
+
+        .c2 {
+            width: 100px;
+            height: 100px;
+            animation-delay: 0.3s;
+        }
+
+        .c3 {
+            width: 90px;
+            height: 90px;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .whatsapp-btn {
+                bottom: 20px;
+                left: 20px;
+            }
+            
+            .whatsapp-btn a {
+                width: 60px;
+                height: 60px;
+            }
+
+            .whatsapp-btn i {
+                font-size: 30px;
+            }
+
+            .circle.c1 {
+                width: 90px;
+                height: 90px;
+            }
+
+            .circle.c2 {
+                width: 75px;
+                height: 75px;
+            }
+
+            .circle.c3 {
+                width: 65px;
+                height: 65px;
+            }
+        }
     </style>
 </head>
 
@@ -487,6 +591,7 @@
             <!-- Navigation Links -->
             <div class="nav-links" id="nav-links">
                 <a href="#apps">تطبيقاتنا</a>
+                <a href="#services">خدماتنا</a>
                 <a href="#reviews">آراء العملاء</a>
                 <a href="#contact">تواصل معنا</a>
             </div>
@@ -555,6 +660,63 @@
         </div>
     </section>
 
+    <section id="services" class="apps-preview">
+        <h2 class="section-title">خدماتنا</h2>
+        <div class="apps-grid">
+            <div class="app-card">
+                <!-- <img src="/api/placeholder/400/300" alt="تطوير المواقع" class="app-image"> -->
+                <div class="app-content">
+                    <h3>تطوير المواقع</h3>
+                    <p>تصميم وتطوير مواقع احترافية تناسب احتياجات عملك</p>
+                    <div class="service-features">
+                        <p>✓ تصميم عصري</p>
+                        <p>✓ متوافق مع جميع الأجهزة</p>
+                        <p>✓ أداء عالي</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="app-card">
+                <!-- <img src="/api/placeholder/400/300" alt="تطوير التطبيقات" class="app-image"> -->
+                <div class="app-content">
+                    <h3>تطوير التطبيقات</h3>
+                    <p>تطبيقات مخصصة لنظامي Android و iOS</p>
+                    <div class="service-features">
+                        <p>✓ واجهة مستخدم سلسة</p>
+                        <p>✓ أداء متميز</p>
+                        <p>✓ تحديثات مستمرة</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="app-card">
+                <!-- <img src="/api/placeholder/400/300" alt="التصميم الإبداعي" class="app-image"> -->
+                <div class="app-content">
+                    <h3>التصميم الإبداعي</h3>
+                    <p>تصاميم عصرية تعكس هوية علامتك التجارية</p>
+                    <div class="service-features">
+                        <p>✓ هوية بصرية متكاملة</p>
+                        <p>✓ تصميم شعارات</p>
+                        <p>✓ تصميم واجهات المستخدم</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="app-card">
+                <!-- <img src="/api/placeholder/400/300" alt="خدمة العملاء" class="app-image"> -->
+                <div class="app-content">
+                    <h3>خدمة العملاء</h3>
+                    <p>دعم فني متميز على مدار الساعة</p>
+                    <div class="service-features">
+                        <p>✓ دعم فني 24/7</p>
+                        <p>✓ استجابة سريعة</p>
+                        <p>✓ حلول فعالة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- قسم الإعلانات -->
     <!-- <section id="ads" class="ads">
         <h2 class="section-title">احصل على تطبيقك الآن!</h2>
@@ -602,7 +764,14 @@
             </form>
         </div>
     </section>
-
+    <div class="whatsapp-btn">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+        <a href="https://wa.me/+201091602558" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
     <!-- الفوتر -->
     <footer class="footer">
         <p>&copy; 2025 حلول التطبيقات. جميع الحقوق محفوظة.</p>
