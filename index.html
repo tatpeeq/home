@@ -64,7 +64,7 @@
         }
 
         /* Navigation */
-        .navbar {
+        /* .navbar {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             padding: 1.2rem 5%;
@@ -73,16 +73,49 @@
             top: 0;
             z-index: 1000;
 
+        } */
+
+     
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            position: fixed;
+            top: 20px;
+            right: 5%;
+            z-index: 1000;
+            overflow: hidden;
+            width: 90%;
+            margin: 20px , 50px;
+            padding: 20px , 50px;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            border-radius: 20px;
         }
 
+        .navbar a {
+            float: right;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #f2f2f2;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            color: white;
+        }
         .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
-            margin: 0 auto;
         }
-
         .logo {
             color: var(--white);
             font-size: 1.8rem;
@@ -169,7 +202,7 @@
         @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
-                padding: 6rem 5% 2rem;
+                padding: 9rem 5% 2rem 2rem;
                 text-align: center;
             }
 
@@ -864,7 +897,9 @@
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
 
-            if (window.scrollY > (window.innerHeight - 50)) {
+            if ((window.scrollY > (window.innerHeight -50))&& window.innerWidth > 968 ) {
+                navbar.classList.add('scrolled');
+            } else if ((window.scrollY > (window.innerHeight +90) )&& window.innerWidth < 967) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
