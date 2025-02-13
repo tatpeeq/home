@@ -5,23 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tatpeeq Tech</title>
-    <meta name="description"
-        content="Professional mobile app development services.">
+    <meta name="description" content="Professional mobile app development services.">
     <link rel="icon" href="web_icon/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="web_icon/apple-touch-icon.png">
     <meta name="google-site-verification" content="XVud6-PKmwSqxKBFSzk9TYPXhGc-bAXyASk9xFbzPkA" />
 
     <!-- Open Graph Meta Tags for Facebook and other social platforms -->
     <meta property="og:title" content="Tatpeeq Tech">
-    <meta property="og:description"
-        content="Professional mobile app development services.">
+    <meta property="og:description" content="Professional mobile app development services.">
     <meta property="og:image" content="images/back.png">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:title" content="Tatpeeq Tech">
-    <meta name="twitter:description"
-        content="Professional mobile app development services.">
+    <meta name="twitter:description" content="Professional mobile app development services.">
     <meta name="twitter:image" content="images/back.png">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -75,7 +72,7 @@
 
         } */
 
-     
+
         .navbar {
             background: rgba(190, 190, 190, 0.1);
             backdrop-filter: blur(15px);
@@ -86,8 +83,8 @@
             z-index: 1000;
             overflow: hidden;
             width: 90%;
-            margin: 20px , 50px;
-            padding: 20px , 50px;
+            margin: 20px, 50px;
+            padding: 20px, 50px;
             align-items: center;
             justify-content: center;
             height: 80px;
@@ -110,12 +107,14 @@
             background-color: #575757;
             color: white;
         }
+
         .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
         }
+
         .logo {
             color: var(--white);
             font-size: 1.8rem;
@@ -462,10 +461,12 @@
             .hamburger {
                 display: flex;
             }
+
             .navbar.scrolled .hamburger span {
                 background: var(--black);
                 transition: all 0.6s ease;
             }
+
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -501,6 +502,7 @@
                 transform: rotate(-45deg) translate(5px, -5px);
             }
         }
+
         .whatsapp-btn {
             position: fixed;
             bottom: 40px;
@@ -566,9 +568,11 @@
                 transform: translate(-50%, -50%) scale(0.5);
                 opacity: 0;
             }
+
             50% {
                 opacity: 0.3;
             }
+
             100% {
                 transform: translate(-50%, -50%) scale(1.4);
                 opacity: 0;
@@ -580,7 +584,7 @@
                 bottom: 20px;
                 left: 20px;
             }
-            
+
             .whatsapp-btn a {
                 width: 60px;
                 height: 60px;
@@ -708,7 +712,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="app-card">
                 <!-- <img src="/api/placeholder/400/300" alt="تطوير التطبيقات" class="app-image"> -->
                 <div class="app-content">
@@ -721,7 +725,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="app-card">
                 <!-- <img src="/api/placeholder/400/300" alt="التصميم الإبداعي" class="app-image"> -->
                 <div class="app-content">
@@ -734,7 +738,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="app-card">
                 <!-- <img src="/api/placeholder/400/300" alt="خدمة العملاء" class="app-image"> -->
                 <div class="app-content">
@@ -749,7 +753,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- قسم الإعلانات -->
     <!-- <section id="ads" class="ads">
         <h2 class="section-title">احصل على تطبيقك الآن!</h2>
@@ -894,15 +898,15 @@
         }
     </script>
     <script>
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar"); // تحديد النافبار
+            const heroSection = document.querySelector(".hero"); // تحديد قسم الـ Hero
+            const heroHeight = heroSection.offsetHeight - 70; // الحصول على ارتفاع الـ Hero
 
-            if ((window.scrollY > (window.innerHeight -80))&& window.innerWidth > 968 ) {
-                navbar.classList.add('scrolled');
-            } else if ((window.scrollY > (window.innerHeight +200) )&& window.innerWidth < 967) {
-                navbar.classList.add('scrolled');
+            if (window.scrollY > heroHeight) {
+                navbar.classList.add("scrolled"); // إضافة الكلاس عند تجاوز الـ Hero
             } else {
-                navbar.classList.remove('scrolled');
+                navbar.classList.remove("scrolled"); // إزالة الكلاس إذا رجع المستخدم للأعلى
             }
         });
     </script>
