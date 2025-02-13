@@ -41,6 +41,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Cairo', sans-serif;
+
         }
 
         :root {
@@ -56,9 +57,22 @@
             line-height: 1.6;
             color: var(--black);
             font-family: 'Cairo', sans-serif;
+
         }
 
         /* Navigation */
+        /* .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+
+        } */
+
+
         .navbar {
             background: rgba(190, 190, 190, 0.1);
             backdrop-filter: blur(15px);
@@ -96,6 +110,7 @@
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
+
         }
 
         .logo {
@@ -104,6 +119,7 @@
             font-weight: bold;
             text-decoration: none;
             transition: color 0.6s ease-in-out;
+
         }
 
         .nav-links {
@@ -118,11 +134,15 @@
             transition: color 0.3s;
         }
 
+
+
         .navbar.scrolled .logo,
         .navbar.scrolled .nav-links a {
             color: black !important;
             transition: color 0.6s ease-in-out;
+
         }
+
 
         /* Hero Section */
         .hero {
@@ -142,6 +162,8 @@
         .hero-image {
             text-align: right;
         }
+
+
 
         .hero h1 {
             font-size: 3.5rem;
@@ -292,6 +314,7 @@
             background: var(--gray);
         }
 
+
         .form-container {
             max-width: 600px;
             margin: 0 auto;
@@ -430,7 +453,53 @@
             transition: all 0.3s ease;
         }
 
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
 
+            .navbar.scrolled .hamburger span {
+                background: var(--black);
+                transition: all 0.6s ease;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 5%;
+                background: rgba(255, 255, 255, 0.9);
+                backdrop-filter: blur(10px);
+                border-radius: 10px;
+                padding: 1rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+            }
+
+            .nav-links a {
+                color: var(--black);
+                margin: 0.5rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            /* Hamburger Animation */
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
 
         .whatsapp-btn {
             position: fixed;
@@ -505,6 +574,72 @@
             100% {
                 transform: translate(-50%, -50%) scale(1.4);
                 opacity: 0;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .whatsapp-btn {
+                bottom: 20px;
+                left: 20px;
+            }
+
+            .whatsapp-btn a {
+                width: 60px;
+                height: 60px;
+            }
+
+            .whatsapp-btn i {
+                font-size: 30px;
+            }
+
+            .circle.c1 {
+                width: 90px;
+                height: 90px;
+            }
+
+            .circle.c2 {
+                width: 75px;
+                height: 75px;
+            }
+
+            .circle.c3 {
+                width: 65px;
+                height: 65px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 60px;
+                right: 10%;
+                background: white;
+                width: 80%;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 10px;
+                border-radius: 10px;
+                transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+                opacity: 0;
+                transform: translateY(-20px);
+                pointer-events: none;
+            }
+
+
+
+
+            .nav-links a {
+                display: block;
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .nav-links.show {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
             }
         }
 
@@ -593,119 +728,7 @@
             opacity: 0.7;
         }
 
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .navbar.scrolled .hamburger span {
-                background: var(--black);
-                transition: all 0.6s ease;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 5%;
-                background: rgba(255, 255, 255, 0.9);
-                backdrop-filter: blur(10px);
-                border-radius: 10px;
-                padding: 1rem;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-
-            }
-
-            .nav-links a {
-                color: var(--black);
-                margin: 0.5rem 0;
-            }
-         
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            /* Hamburger Animation */
-            .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .whatsapp-btn {
-                bottom: 20px;
-                left: 20px;
-            }
-
-            .whatsapp-btn a {
-                width: 60px;
-                height: 60px;
-            }
-
-            .whatsapp-btn i {
-                font-size: 30px;
-            }
-
-            .circle.c1 {
-                width: 90px;
-                height: 90px;
-            }
-
-            .circle.c2 {
-                width: 75px;
-                height: 75px;
-            }
-
-            .circle.c3 {
-                width: 65px;
-                height: 65px;
-            }
-
-            .nav-links {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                position: absolute;
-                top: 60px;
-                gap: 0;
-                right: 10%;
-                background: white;
-                width: 80%;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                padding: 10px;
-                border-radius: 10px;
-                transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-                opacity: 0;
-                transform: translateY(-20px);
-                pointer-events: none;
-            }
-
-            .nav-links a {
-                display: block;
-                padding: 10px;
-                text-align: center;
-                width: 100%;
-            }
-
-            .nav-links.show {
-                display: flex;
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: auto;
-            }
-
-        }
-
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .footer-content {
                 flex-direction: column;
@@ -722,71 +745,11 @@
                 /* Reduce margin for smaller screens */
             }
         }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: var(--black);
-                color: var(--white);
-            }
-
-            .navbar {
-                background: rgba(50, 50, 50, 0.1);
-            }
-            .navbar.scrolled .nav-links {
-                background: var(--black);
-            }
-            .navbar.scrolled .logo ,
-            .navbar.scrolled .nav-links a 
-                {
-                color: var(--white) !important;
-            }
-
-            .hero {
-                background: linear-gradient(135deg, var(--blue), var(--purple));
-            }
-
-            .navbar.scrolled .hamburger span {
-                background: var(--purple);
-            }
-
-            .apps-preview {
-                background: var(--black);
-            }
-
-            #services {
-                background: var(--black);
-            }
-
-            .app-card {
-                background: var(--graydark);
-                color: var(--white);
-            }
-
-            .review-card {
-                background: var(--graydark);
-                color: var(--white);
-            }
-
-            .contact {
-                background: var(--black);
-            }
-
-            .form-group input,
-            .form-group textarea {
-                background: var(--graydark);
-                color: var(--white);
-            }
-
-            .footer {
-                background: linear-gradient(135deg, var(--blue), var(--purple));
-                color: var(--white);
-            }
-        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar">
+    = <nav class="navbar">
         <div class="nav-content">
             <a href="#" class="logo">
                 <img src="images/logo2.png" alt="Logo" class="logo-icon">
@@ -807,7 +770,7 @@
         </div>
     </nav>
 
-    <section class="hero">
+    = <section class="hero">
         <div class="hero-content">
             <h1>حوّل أفكارك إلى تطبيقات ناجحة</h1>
             <p>تطوير احترافي لتطبيقات الهواتف المحمولة</p>
@@ -819,7 +782,7 @@
 
     </section>
 
-    <section id="apps" class="apps-preview">
+    = <section id="apps" class="apps-preview">
         <h2 class="section-title">تطبيقاتنا</h2>
         <div class="apps-grid">
             <div class="app-card">
@@ -1073,14 +1036,14 @@
 
 
     </script>
-
-    <script>
+   
+   <script>
         function showAlert(platform) {
             alert('سيتم النشر قريبا على ' + platform);
         }
     </script>
-
-    <script>
+  
+  <script>
         window.addEventListener("scroll", function () {
             const navbar = document.querySelector(".navbar"); // تحديد النافبار
             const heroSection = document.querySelector(".hero"); // تحديد قسم الـ Hero
@@ -1093,8 +1056,8 @@
             }
         });
     </script>
-
-    <script>
+  
+  <script>
         document.addEventListener("DOMContentLoaded", function () {
             const hamburger = document.getElementById("hamburger");
             const navLinks = document.getElementById("nav-links");
@@ -1115,5 +1078,4 @@
     </script>
 
 </body>
-
 </html>
