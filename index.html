@@ -77,8 +77,8 @@
 
      
         .navbar {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(190, 190, 190, 0.1);
+            backdrop-filter: blur(15px);
             padding: 1.2rem 5%;
             position: fixed;
             top: 20px;
@@ -897,9 +897,9 @@
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
 
-            if ((window.scrollY > (window.innerHeight -50))&& window.innerWidth > 968 ) {
+            if ((window.scrollY > (window.outerHeight -80))&& window.outerWidth > 968 ) {
                 navbar.classList.add('scrolled');
-            } else if ((window.scrollY > (window.innerHeight +90) )&& window.innerWidth < 967) {
+            } else if ((window.scrollY > (window.outerHeight +200) )&& window.outerWidth < 967) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
