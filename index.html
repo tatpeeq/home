@@ -74,7 +74,8 @@
             justify-content: center;
             height: 80px;
             border-radius: 20px;
-        }
+            border: #77777746 2px solid;
+         }
 
         .navbar a {
             float: right;
@@ -203,15 +204,15 @@
 
         /* Apps Preview Section */
         .apps-preview {
-            padding: 5rem 5%;
+            padding: 5rem 5% 0 5%;
             background: var(--white);
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-top: 3rem;
-            margin-bottom: 2rem;
+            margin-top: 70px;
+            margin-bottom: 30px;
             color: var(--purple);
         }
 
@@ -252,7 +253,7 @@
 
         /* Reviews Section */
         .reviews {
-            padding: 5rem 5%;
+            padding: 5rem 5% 0 5%;
         }
 
         .reviews-grid {
@@ -288,7 +289,7 @@
 
         /* Contact Form Section */
         .contact {
-            padding: 5rem 5%;
+            padding: 5rem 5% 5rem 5%;
             background: var(--gray);
         }
 
@@ -509,7 +510,7 @@
         }
 
         #services {
-            padding: 5rem 5%;
+            padding: 5rem 5% 0 5%;
             background: var(--gray);
         }
 
@@ -720,7 +721,7 @@
             .service-icon {
                 width: 60px;
                 height: 60px;
-                margin: -30px auto 15px;
+                margin: 20px auto 15px;
             }
 
             .service-icon i {
@@ -967,226 +968,228 @@
 </head>
 
 <body>
-    <nav class="navbar" data-aos="fade-down">
-        <div class="nav-content">
-            <a href="#" class="logo">
-                <img src="images/logo2.png" alt="Logo" class="logo-icon">
-            </a>
-            <!-- Hamburger Menu Icon -->
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <!-- Navigation Links -->
-            <div class="nav-links" id="nav-links">
-                <a href="#apps">تطبيقاتنا</a>
-                <a href="#services">خدماتنا</a>
-                <a href="#reviews">آراء العملاء</a>
-                <a href="#contact">تواصل معنا</a>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-content" data-aos="fade-down">
-            <h1>حوّل أفكارك إلى تطبيقات ناجحة</h1>
-            <p>تطوير احترافي لتطبيقات الهواتف المحمولة</p>
-            <a href="#contact" class="cta-button">احجز استشارتك المجانية</a>
-        </div>
-        <div class="hero-image">
-            <img src="images/aa.png" alt="تطوير تطبيقات الهاتف" class="bouncing-image">
-        </div>
-
-    </section>
-
-    <section id="apps" class="apps-preview" data-aos="fade-up">
-        <h2 class="section-title">تطبيقاتنا</h2>
-        <div class="apps-grid">
-            <div class="app-card" data-aos="zoom-in">
-                <img src="images/1.png" alt="Salam Space" class="app-image">
-                <div class="app-content">
-                    <h3>Salam Space</h3>
-                    <p>تطبيق إسلامي لتقديم خدمات سلامية</p>
-                    <div class="download-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.arab.salamspace" target="_blank"
-                            class="download-link">
-                            <img src="images/gp.png" alt="Android Download" class="download-icon">
-                        </a>
-                        <a href="https://apps.apple.com/app/id6740785701" target="_blank" class="download-link">
-                            <img src="images/ios.png" alt="iOS Download" class="download-icon">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="app-card" data-aos="zoom-in">
-                <img src="images/2.png" alt="تطبيقات التجارة الإلكترونية" class="app-image">
-                <div class="app-content">
-                    <h3>تطبيقات المطاعم</h3>
-                    <p>تطبيقات مخصصة للمطاعم لتسهيل الطلبات</p>
-                    <div class="download-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.restauranttest.egypt" target="_blank"
-                            class="download-link">
-                            <img src="images/gp.png" alt="Android Download" class="download-icon">
-                        </a>
-                        <a class="download-link" onclick="showAlert('اب ستور')">
-                            <img src="images/ios.png" alt="iOS Download" class="download-icon">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="app-card" data-aos="zoom-in">
-                <img src="images/3.png" alt="تطبيقات التواصل الاجتماعي" class="app-image">
-                <div class="app-content">
-                    <h3>تطبيقات مخصصه</h3>
-                    <p>تطبيقات مخصصة لك حسب الاحتياجات</p>
-                    <p> </p>
-
-                    <p class="coming-soon">يتم النشر حسب رغبك</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="services-showcase" data-aos="fade-up">
-        <h2 class="services-title">خدماتنا</h2>
-        <div class="services-container">
-            <div class="service-item" data-aos="zoom-in">
-                <div class="service-icon">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <div class="service-details">
-                    <h3 class="service-heading">تطوير المواقع</h3>
-                    <p class="service-description">تصميم وتطوير مواقع احترافية تناسب احتياجات عملك</p>
-                    <ul class="service-list">
-                        <li><i class="fas fa-paint-brush"></i> تصميم عصري وجذاب</li>
-                        <li><i class="fas fa-mobile-alt"></i> متوافق مع جميع الأجهزة</li>
-                        <li><i class="fas fa-tachometer-alt"></i> سرعة تحميل فائقة</li>
-                        <li><i class="fas fa-search"></i> تحسين محركات البحث</li>
-                        <li><i class="fas fa-cogs"></i> لوحة تحكم سهلة</li>
-                        <li><i class="fas fa-headset"></i> دعم فني متواصل</li>
-                        <li><i class="fas fa-chart-line"></i> تقارير أداء شهرية</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="service-item" data-aos="zoom-in">
-                <div class="service-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <div class="service-details">
-                    <h3 class="service-heading">تطوير التطبيقات</h3>
-                    <p class="service-description">تطبيقات مخصصة لنظامي Android و iOS</p>
-                    <ul class="service-list">
-                        <li><i class="fas fa-layer-group"></i> واجهة مستخدم سلسة</li>
-                        <li><i class="fas fa-bolt"></i> أداء عالي وسريع</li>
-                        <li><i class="fas fa-sync"></i> تحديثات مستمرة</li>
-                        <li><i class="fas fa-plug"></i> تكامل مع الأنظمة</li>
-                        <li><i class="fas fa-shield-alt"></i> حماية وأمان متقدم</li>
-                        <li><i class="fas fa-chart-bar"></i> تحليلات مفصلة</li>
-                        <li><i class="fas fa-life-ring"></i> دعم تقني شامل</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="service-item" data-aos="zoom-in">
-                <div class="service-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <div class="service-details">
-                    <h3 class="service-heading">التصميم الإبداعي</h3>
-                    <p class="service-description">تصاميم عصرية تعكس هوية علامتك التجارية</p>
-                    <ul class="service-list">
-                        <li><i class="fas fa-fingerprint"></i> هوية بصرية متكاملة</li>
-                        <li><i class="fas fa-star"></i> تصميم شعارات احترافية</li>
-                        <li><i class="fas fa-desktop"></i> تصميم واجهات المستخدم</li>
-                        <li><i class="fas fa-bullhorn"></i> مواد تسويقية متنوعة</li>
-                        <li><i class="fas fa-magic"></i> تصاميم تفاعلية</li>
-                        <li><i class="fas fa-file-alt"></i> ملفات قابلة للتعديل</li>
-                        <li><i class="fas fa-globe"></i> تصاميم متوافقة عالمياً</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="reviews" class="reviews" data-aos="fade-up">
-        <h2 class="section-title">آراء عملائنا</h2>
-        <div class="reviews-grid">
-            <div class="review-card" data-aos="zoom-in">
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"خدمة ممتازة وتطبيق احترافي غيّر طريقة عمل شركتنا بالكامل."</p>
-                <div class="reviewer-name">أحمد محمود</div>
-                <div class="reviewer-title">مدير شركة برمجيات</div>
-            </div>
-            <div class="review-card" data-aos="zoom-in">
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"فريق عمل محترف والتطبيق كان أكثر مما توقعنا!"</p>
-                <div class="reviewer-name">منى خالد</div>
-                <div class="reviewer-title">عميله مميزه</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact" data-aos="fade-up">
-        <h2 class="section-title">تواصل معنا</h2>
-        <div class="form-container" data-aos="zoom-in">
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">الاسم</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">رقم الهاتف</label>
-                    <input type="tel" id="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">رسالتك</label>
-                    <textarea id="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">إرسال</button>
-            </form>
-        </div>
-    </section>
-
-    <div class="whatsapp-btn" data-aos="fade-up">
-        <div class="circle c1"></div>
-        <div class="circle c2"></div>
-        <div class="circle c3"></div>
-        <a href="https://wa.me/+201091602558" target="_blank">
-            <i class="fab fa-whatsapp"></i>
+<!-- Navigation -->
+<nav class="navbar" data-aos="fade-down">
+    <div class="nav-content">
+        <a href="#" class="logo">
+            <img src="images/logo2.png" alt="Logo" class="logo-icon">
         </a>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="#apps">مشاريعنا</a>
+            <a href="#services">خدماتنا</a>
+            <a href="#reviews">آراء العملاء</a>
+            <a href="#contact">تواصل معنا</a>
+        </div>
     </div>
+</nav>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#apps">تطبيقاتنا</a>
-                <a href="#services">خدماتنا</a>
-                <a href="#reviews">آراء العملاء</a>
-                <a href="#contact">تواصل معنا</a>
-            </div>
-            <div class="footer-contact">
-                <p onclick="copyToClipboard('010-9160-2558')">
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:01091602558">010-9160-2558</a>
-                </p>
-                <p onclick="copyToClipboard('3bdelrahman.ibrahim@gmail.com')">
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content" data-aos="fade-down">
+        <h1>حوّل رؤيتك الرقمية إلى واقع ملموس</h1>
+        <p>نبتكر حلولاً تقنية متكاملة تجمع بين الإبداع والاحترافية</p>
+        <a href="#contact" class="cta-button">ابدأ مشروعك الآن</a>
+    </div>
+    <div class="hero-image">
+        <img src="images/aa.png" alt="تطوير تطبيقات الهاتف" class="bouncing-image">
+    </div>
+</section>
 
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:3bdelrahman.ibrahim@gmail.com">3bdelrahman.ibrahim@gmail.com</a>
-                </p>
-            </div>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+<!-- Apps Section -->
+<section id="apps" class="apps-preview" data-aos="fade-up">
+    <h2 class="section-title">إنجازات نفخر بها</h2>
+    <div class="apps-grid">
+        <div class="app-card" data-aos="zoom-in">
+            <img src="images/1.png" alt="Salam Space" class="app-image">
+            <div class="app-content">
+                <h3>Salam Space</h3>
+                <p>منصة إسلامية متكاملة تجمع المحتوى الهادف</p>
+                <div class="download-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.arab.salamspace" target="_blank" class="download-link">
+                        <img src="images/gp.png" alt="Android Download" class="download-icon">
+                    </a>
+                    <a href="https://apps.apple.com/app/id6740785701" target="_blank" class="download-link">
+                        <img src="images/ios.png" alt="iOS Download" class="download-icon">
+                    </a>
+                </div>
             </div>
         </div>
-        <p class="footer-text">&copy; 2025 حلول التطبيقات. جميع الحقوق محفوظة.</p>
-    </footer>
+        <div class="app-card" data-aos="zoom-in">
+            <img src="images/2.png" alt="تطبيقات المطاعم" class="app-image">
+            <div class="app-content">
+                <h3>حلول المطاعم الذكية</h3>
+                <p>منظومة متكاملة لإدارة وتطوير أعمال المطاعم</p>
+                <div class="download-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.restauranttest.egypt" target="_blank" class="download-link">
+                        <img src="images/gp.png" alt="Android Download" class="download-icon">
+                    </a>
+                    <a class="download-link" onclick="showAlert('اب ستور')">
+                        <img src="images/ios.png" alt="iOS Download" class="download-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="app-card" data-aos="zoom-in">
+            <img src="images/3.png" alt="تطبيقات مخصصة" class="app-image">
+            <div class="app-content">
+                <h3>حلول تقنية مخصصة</h3>
+                <p>نطور حلولاً تناسب احتياجات عملك بدقة</p>
+                <p class="coming-soon">نصمم حسب متطلباتك</p>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Services Section -->
+<section id="services" class="services-showcase" data-aos="fade-up">
+
+     <h2 class="section-title">خدماتنا</h2>
+    <div class="services-container">
+        <div class="service-item" data-aos="zoom-in">
+            <div class="service-icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="service-details">
+                <h3 class="service-heading">تطوير المواقع</h3>
+                <p class="service-description">نصمم مواقع عصرية تجمع بين الأداء المتميز والتصميم الجذاب</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-paint-brush"></i> تصميم عصري وجذاب</li>
+                    <li><i class="fas fa-mobile-alt"></i> توافق تام مع جميع الأجهزة</li>
+                    <li><i class="fas fa-tachometer-alt"></i> أداء وسرعة فائقة</li>
+                    <li><i class="fas fa-search"></i> تحسين محركات البحث</li>
+                    <li><i class="fas fa-shield-alt"></i> حماية متقدمة</li>
+                    <li><i class="fas fa-headset"></i> دعم فني مستمر</li>
+                    <li><i class="fas fa-chart-line"></i> تقارير أداء تفصيلية</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-item" data-aos="zoom-in">
+            <div class="service-icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="service-details">
+                <h3 class="service-heading">تطوير التطبيقات</h3>
+                <p class="service-description">نطور تطبيقات ذكية تلبي احتياجات السوق وتواكب التطور التقني</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-layer-group"></i> واجهات سهلة الاستخدام</li>
+                    <li><i class="fas fa-bolt"></i> أداء متميز وسرعة فائقة</li>
+                    <li><i class="fas fa-sync"></i> تحديثات مستمرة</li>
+                    <li><i class="fas fa-plug"></i> تكامل مع الأنظمة المختلفة</li>
+                    <li><i class="fas fa-shield-alt"></i> حماية وأمان متقدم</li>
+                    <li><i class="fas fa-chart-bar"></i> تحليلات تفصيلية</li>
+                    <li><i class="fas fa-life-ring"></i> دعم فني شامل</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-item" data-aos="zoom-in">
+            <div class="service-icon">
+                <i class="fas fa-palette"></i>
+            </div>
+            <div class="service-details">
+                <h3 class="service-heading">التصميم الإبداعي</h3>
+                <p class="service-description">نبتكر تصاميم عصرية تعزز هوية علامتك التجارية</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-fingerprint"></i> هوية بصرية متكاملة</li>
+                    <li><i class="fas fa-star"></i> تصميم شعارات مميزة</li>
+                    <li><i class="fas fa-desktop"></i> واجهات مستخدم عصرية</li>
+                    <li><i class="fas fa-bullhorn"></i> تصاميم تسويقية احترافية</li>
+                    <li><i class="fas fa-magic"></i> تجربة مستخدم تفاعلية</li>
+                    <li><i class="fas fa-file-alt"></i> ملفات قابلة للتعديل</li>
+                    <li><i class="fas fa-globe"></i> معايير تصميم عالمية</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Reviews Section -->
+<section id="reviews" class="reviews" data-aos="fade-up">
+    <h2 class="section-title">ما يقوله عملاؤنا عن تجربتهم معنا</h2>
+    <div class="reviews-grid">
+        <div class="review-card" data-aos="zoom-in">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"فريق محترف قدم حلولاً مبتكرة ساهمت في تطوير أعمالنا بشكل ملحوظ"</p>
+            <div class="reviewer-name">أحمد محمود</div>
+            <div class="reviewer-title">مدير شركة برمجيات</div>
+        </div>
+        <div class="review-card" data-aos="zoom-in">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"تجربة متميزة من البداية للنهاية، النتائج فاقت توقعاتنا!"</p>
+            <div class="reviewer-name">منى خالد</div>
+            <div class="reviewer-title">صاحبة مشروع ناشئ</div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact" data-aos="fade-up">
+    <h2 class="section-title">دعنا نناقش كيف يمكننا المساهمة في نجاح مشروعك</h2>
+    <div class="form-container" data-aos="zoom-in">
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">الاسم</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">رقم الهاتف</label>
+                <input type="tel" id="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="message">كيف يمكننا مساعدتك؟</label>
+                <textarea id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">إرسال الرسالة</button>
+        </form>
+    </div>
+</section>
+
+<!-- WhatsApp Button -->
+<div class="whatsapp-btn" data-aos="fade-up">
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+    <div class="circle c3"></div>
+    <a href="https://wa.me/+201091602558" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-links">
+            <a href="#apps">مشاريعنا</a>
+            <a href="#services">خدماتنا</a>
+            <a href="#reviews">آراء العملاء</a>
+            <a href="#contact">تواصل معنا</a>
+        </div>
+        <div class="footer-contact">
+            <p onclick="copyToClipboard('010-9160-2558')">
+                <i class="fas fa-phone"></i>
+                <a href="tel:01091602558">010-9160-2558</a>
+            </p>
+            <p onclick="copyToClipboard('3bdelrahman.ibrahim@gmail.com')">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:3bdelrahman.ibrahim@gmail.com">3bdelrahman.ibrahim@gmail.com</a>
+            </p>
+        </div>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+    <p class="footer-text">© 2025 حلول برمجية مبتكرة. جميع الحقوق محفوظة.</p>
+</footer>
+
+ 
     <script type="module">
         // Import Firebase SDK
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
