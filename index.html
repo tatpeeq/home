@@ -723,7 +723,7 @@
             }
         }
 
-        @media (prefers-color-scheme: dark ) {
+        @media (prefers-color-scheme: dark) {
             body {
                 background-color: var(--black);
                 color: var(--white);
@@ -731,10 +731,6 @@
 
             .navbar {
                 background: rgba(50, 50, 50, 0.1);
-            }
-
-            .navbar.scrolled .nav-links {
-                background: var(--black);
             }
 
             .navbar.scrolled .logo,
@@ -781,6 +777,12 @@
             .footer {
                 background: linear-gradient(135deg, var(--blue), var(--purple));
                 color: var(--white);
+            }
+        }
+
+        @media (prefers-color-scheme: dark) and (max-width: 768px) {
+            .navbar.scrolled .nav-links {
+                background: var(--purple);
             }
         }
 
@@ -1140,10 +1142,23 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             AOS.init({
-                duration: 1000, // Animation duration (ms)
-                once: true,     // Whether animation should happen only once
+                duration: 1000, // Animation duration in milliseconds
+                once: true      // Ensure the animation happens only once
+            });
+
+            // Disable AOS when any link in the navigation menu is clicked
+            document.querySelectorAll(".nav-links a").forEach(link => {
+                link.addEventListener("click", function () {
+                    AOS.init({ duration: 0 }); // Disable animation by setting duration to 0
+
+                    // Re-enable AOS after a brief timeout (e.g., 0 milliseconds or a small delay)
+                    setTimeout(() => {
+                        AOS.init({ duration: 1000 }); // Re-enable with the original animation duration
+                    }, 0);  // Timeout delay in milliseconds
+                });
             });
         });
+
     </script>
 
 </body>
