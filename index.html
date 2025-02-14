@@ -621,7 +621,7 @@
                 color: var(--black);
                 margin: 0.5rem 0;
             }
-         
+
 
             .nav-links.active {
                 display: flex;
@@ -732,12 +732,13 @@
             .navbar {
                 background: rgba(50, 50, 50, 0.1);
             }
+
             .navbar.scrolled .nav-links {
                 background: var(--black);
             }
-            .navbar.scrolled .logo ,
-            .navbar.scrolled .nav-links a 
-                {
+
+            .navbar.scrolled .logo,
+            .navbar.scrolled .nav-links a {
                 color: var(--white) !important;
             }
 
@@ -782,15 +783,16 @@
                 color: var(--white);
             }
         }
-        .footer-contact a{
-                text-decoration: none;
-                color: var(--white);
-            }
+
+        .footer-contact a {
+            text-decoration: none;
+            color: var(--white);
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar">
+    <nav class="navbar" data-aos="fade-down">
         <div class="nav-content">
             <a href="#" class="logo">
                 <img src="images/logo2.png" alt="Logo" class="logo-icon">
@@ -812,21 +814,21 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-down">
             <h1>حوّل أفكارك إلى تطبيقات ناجحة</h1>
             <p>تطوير احترافي لتطبيقات الهواتف المحمولة</p>
             <a href="#contact" class="cta-button">احجز استشارتك المجانية</a>
         </div>
-        <div class="hero-image">
+        <div class="hero-image" data-aos="fade-down">
             <img src="images/aa.png" alt="تطوير تطبيقات الهاتف" class="bouncing-image">
         </div>
 
     </section>
 
-    <section id="apps" class="apps-preview">
+    <section id="apps" class="apps-preview" data-aos="fade-up">
         <h2 class="section-title">تطبيقاتنا</h2>
         <div class="apps-grid">
-            <div class="app-card">
+            <div class="app-card" data-aos="zoom-in">
                 <img src="images/1.png" alt="Salam Space" class="app-image">
                 <div class="app-content">
                     <h3>Salam Space</h3>
@@ -842,7 +844,7 @@
                     </div>
                 </div>
             </div>
-            <div class="app-card">
+            <div class="app-card" data-aos="zoom-in">
                 <img src="images/2.png" alt="تطبيقات التجارة الإلكترونية" class="app-image">
                 <div class="app-content">
                     <h3>تطبيقات المطاعم</h3>
@@ -858,7 +860,7 @@
                     </div>
                 </div>
             </div>
-            <div class="app-card">
+            <div class="app-card" data-aos="zoom-in">
                 <img src="images/3.png" alt="تطبيقات التواصل الاجتماعي" class="app-image">
                 <div class="app-content">
                     <h3>تطبيقات مخصصه</h3>
@@ -871,10 +873,10 @@
         </div>
     </section>
 
-    <section id="services" class="apps-preview">
+    <section id="services" class="apps-preview" data-aos="fade-up">
         <h2 class="section-title">خدماتنا</h2>
         <div class="apps-grid">
-            <div class="app-card">
+            <div class="app-card" data-aos="zoom-in">
                 <!-- <img src="/api/placeholder/400/300" alt="تطوير المواقع" class="app-image"> -->
                 <div class="app-content">
                     <h3>تطوير المواقع</h3>
@@ -887,7 +889,7 @@
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" data-aos="zoom-in">
                 <!-- <img src="/api/placeholder/400/300" alt="تطوير التطبيقات" class="app-image"> -->
                 <div class="app-content">
                     <h3>تطوير التطبيقات</h3>
@@ -900,7 +902,7 @@
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" data-aos="zoom-in">
                 <!-- <img src="/api/placeholder/400/300" alt="التصميم الإبداعي" class="app-image"> -->
                 <div class="app-content">
                     <h3>التصميم الإبداعي</h3>
@@ -913,7 +915,7 @@
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" data-aos="zoom-in">
                 <!-- <img src="/api/placeholder/400/300" alt="خدمة العملاء" class="app-image"> -->
                 <div class="app-content">
                     <h3>خدمة العملاء</h3>
@@ -928,16 +930,16 @@
         </div>
     </section>
 
-    <section id="reviews" class="reviews">
+    <section id="reviews" class="reviews" data-aos="fade-up">
         <h2 class="section-title">آراء عملائنا</h2>
         <div class="reviews-grid">
-            <div class="review-card">
+            <div class="review-card" data-aos="zoom-in">
                 <div class="stars">★★★★★</div>
                 <p class="review-text">"خدمة ممتازة وتطبيق احترافي غيّر طريقة عمل شركتنا بالكامل."</p>
                 <div class="reviewer-name">أحمد محمود</div>
                 <div class="reviewer-title">مدير شركة برمجيات</div>
             </div>
-            <div class="review-card">
+            <div class="review-card" data-aos="zoom-in">
                 <div class="stars">★★★★★</div>
                 <p class="review-text">"فريق عمل محترف والتطبيق كان أكثر مما توقعنا!"</p>
                 <div class="reviewer-name">منى خالد</div>
@@ -946,9 +948,9 @@
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" data-aos="fade-up">
         <h2 class="section-title">تواصل معنا</h2>
-        <div class="form-container">
+        <div class="form-container" data-aos="zoom-in">
             <form id="contactForm">
                 <div class="form-group">
                     <label for="name">الاسم</label>
@@ -967,7 +969,7 @@
         </div>
     </section>
 
-    <div class="whatsapp-btn">
+    <div class="whatsapp-btn" data-aos="fade-up">
         <div class="circle c1"></div>
         <div class="circle c2"></div>
         <div class="circle c3"></div>
@@ -976,7 +978,7 @@
         </a>
     </div>
 
-    <footer class="footer">
+    <footer class="footer" data-aos="fade-up">
         <div class="footer-content">
             <div class="footer-links">
                 <a href="#apps">تطبيقاتنا</a>
@@ -990,12 +992,12 @@
                     <a href="tel:01091602558">010-9160-2558</a>
                 </p>
                 <p onclick="copyToClipboard('3bdelrahman.ibrahim@gmail.com')">
-                    
+
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:3bdelrahman.ibrahim@gmail.com">3bdelrahman.ibrahim@gmail.com</a>
                 </p>
             </div>
-                        <div class="footer-social">
+            <div class="footer-social">
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1134,6 +1136,16 @@
             });
         }
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            AOS.init({
+                duration: 1000, // Animation duration (ms)
+                once: true,     // Whether animation should happen only once
+            });
+        });
+    </script>
+
 </body>
 
 </html>
