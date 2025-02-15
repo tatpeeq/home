@@ -471,7 +471,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            animation: wave 2s infinite;
+            animation: wave 3s infinite;
             opacity: 0;
         }
 
@@ -775,9 +775,19 @@
             .hamburger.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(5px, -5px);
             }
-        }
+            .nav-links a {
+                display: block;
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+            }
 
-        @media screen and (max-width: 600px) {
+            .nav-links.show {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
             .whatsapp-btn {
                 bottom: 20px;
                 left: 20px;
@@ -825,22 +835,9 @@
                 transform: translateY(-20px);
                 pointer-events: none;
             }
-
-            .nav-links a {
-                display: block;
-                padding: 10px;
-                text-align: center;
-                width: 100%;
-            }
-
-            .nav-links.show {
-                display: flex;
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: auto;
-            }
-
         }
+
+        
 
         @media (max-width: 768px) {
             .footer-content {
@@ -964,6 +961,8 @@
                 background: var(--purple);
             }
         }
+
+          
     </style>
 </head>
 
