@@ -216,7 +216,7 @@ body {
     object-fit: cover;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(48,93,255,0.08);
-    background: #f5f5f5;
+    background: #f5f5f52b;
     transition: transform 0.2s, box-shadow 0.2s;
     margin: 0;
 }
