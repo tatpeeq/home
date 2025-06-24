@@ -31,951 +31,11 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        :root {
-            --blue: #305dff;
-            --darkblue: #03002c;
-            --white: #FFFFFF;
-            --black: #000000;
-            --gray: #F5F5F5;
-            --graydark: #2c2c2c;
-        }
-
-        body {
-            line-height: 1.6;
-            color: var(--black);
-            font-family: 'Cairo', sans-serif;
-        }
-
-        /* Navigation */
-        .navbar {
-            background: rgba(190, 190, 190, 0.1);
-            backdrop-filter: blur(15px);
-            padding: 1.2rem 5%;
-            position: fixed;
-            top: 20px;
-            right: 5%;
-            z-index: 1000;
-            width: 90%;
-            margin: 20px, 50px;
-            padding: 20px, 50px;
-            align-items: center;
-            justify-content: center;
-            height: 80px;
-            border-radius: 20px;
-            border: #77777746 2px solid;
-         }
-
-        .navbar a {
-            float: right;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #f2f2f2;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 10px;
-        }
-
-        .navbar a:hover {
-            color: white;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-        }
-
-        .logo {
-            color: var(--white);
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-decoration: none;
-            transition: color 0.6s ease-in-out;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .navbar.scrolled .logo,
-        .navbar.scrolled .nav-links a {
-            color: black !important;
-            transition: color 0.6s ease-in-out;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--blue), var(--darkblue));
-            padding: 8rem 5% 4rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .hero-content {
-            color: var(--bg-primary);
-        }
-
-        .hero-image {
-            text-align: right;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            color: var(--white);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--white);
-            color: var(--blue);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 9rem 5% 2rem 2rem;
-                text-align: center;
-            }
-
-            .hero-content {
-                order: 1;
-            }
-
-            .hero-image {
-                order: 2;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Apps Preview Section */
-        .apps-preview {
-            padding: 5rem 5% 0 5%;
-            background: var(--white);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-top: 70px;
-            margin-bottom: 30px;
-            color: var(--blue);
-        }
-
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .app-card {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .app-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .app-image {
-            width: 100%;
-            aspect-ratio: 1.3;
-            object-fit: cover;
-        }
-
-        .app-content {
-            padding: 1.5rem;
-        }
-
-        .app-content h3 {
-            color: var(--blue);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Reviews Section */
-        .reviews {
-            padding: 5rem 5% 0 5%;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .review-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .stars {
-            color: var(--blue);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .review-text {
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .reviewer-name {
-            color: var(--blue);
-            font-weight: bold;
-        }
-
-        /* Contact Form Section */
-        .contact {
-            padding: 5rem 5% 5rem 5%;
-            background: var(--gray);
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--black);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--blue);
-            outline: none;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--blue), var(--darkblue));
-            color: var(--white);
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        .submit-btn:hover {
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--blue);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 5%;
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            max-width: 100%;
-        }
-
-        .bouncing-image {
-            animation: bounce 2s ease-in-out infinite;
-            max-width: 100%;
-        }
-
-        /* Keyframes for bouncing effect */
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-20px);
-                /* Bounce up */
-            }
-
-            60% {
-                transform: translateY(-10px);
-                /* Bounce down */
-            }
-        }
-
-        .coming-soon {
-            color: var(--graydark);
-            text-align: center;
-            font-weight: 700;
-            padding: 1rem 1%;
-        }
-
-        .download-links {
-            display: flex;
-            gap: 10px;
-            padding: 20px 5px;
-            justify-content: space-around;
-        }
-
-        .download-icon {
-            width: 100px;
-            height: 35px;
-            border-radius: 7px;
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 7px;
-            filter: brightness(0) saturate(100%) invert(1);
-            transition: filter 0.6s ease-in-out
-        }
-
-        .navbar.scrolled .logo-icon {
-            filter: none;
-            transition: filter 0.6s ease-in-out
-        }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--white);
-            transition: all 0.3s ease;
-        }
-
-
-
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 40px;
-            left: 40px;
-            z-index: 1000;
-        }
-
-        .whatsapp-btn a {
-            width: 80px;
-            height: 80px;
-            background-color: #25D366;
-            text-decoration: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 4;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-btn a:hover {
-            transform: scale(1.1);
-        }
-
-        .whatsapp-btn i {
-            color: white;
-            font-size: 40px;
-        }
-
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            background-color: #25D366;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: wave 3s infinite;
-            opacity: 0;
-        }
-
-        .c1 {
-            width: 120px;
-            height: 120px;
-            animation-delay: 0s;
-        }
-
-        .c2 {
-            width: 100px;
-            height: 100px;
-            animation-delay: 0.3s;
-        }
-
-        .c3 {
-            width: 90px;
-            height: 90px;
-            animation-delay: 0.6s;
-        }
-
-        @keyframes wave {
-            0% {
-                transform: translate(-50%, -50%) scale(0.5);
-                opacity: 0;
-            }
-
-            50% {
-                opacity: 0.3;
-            }
-
-            100% {
-                transform: translate(-50%, -50%) scale(1.4);
-                opacity: 0;
-            }
-        }
-
-        #services {
-            padding: 5rem 5% 0 5%;
-            background: var(--gray);
-        }
-
-        .footer {
-            background: linear-gradient(135deg, var(--blue), var(--darkblue));
-            color: #fff;
-            text-align: center;
-            padding: 20px 10px;
-            font-size: 16px;
-            direction: rtl;
-            /* دعم العربية */
-        }
-
-        /* تنسيق المحتوى الداخلي للفوتر */
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 10px auto;
-            /* Improved margin syntax */
-            padding-bottom: 10px;
-            border-bottom: 1px solid #444;
-        }
-
-        /* تنسيق الروابط */
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 10px;
-            justify-content: center;
-            /* Center links for better responsiveness */
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            margin: 10px;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-            /* Specify transition property */
-        }
-
-        .footer-links a:hover {
-            color: #f39c12;
-        }
-
-        /* تنسيق معلومات الاتصال */
-        .footer-contact p {
-            margin: 15px;
-            font-weight: bold;
-        }
-
-        /* تنسيق أيقونات التواصل الاجتماعي */
-        .footer-social {
-            margin: 10px;
-            display: flex;
-            justify-content: center;
-            /* Center social icons */
-        }
-
-        .footer-social a {
-            margin: 10px;
-            color: #fff;
-            font-size: 24px;
-            margin: 0 10px;
-            transition: color 0.3s ease, transform 0.3s ease;
-            /* Specify transition properties */
-        }
-
-        .footer-social a:hover {
-            color: #f39c12;
-            transform: scale(1.1);
-        }
-
-        /* تنسيق نص الحقوق */
-        .footer-text {
-            margin-top: 15px;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
-        .footer-contact a {
-            text-decoration: none;
-            color: var(--white);
-        }
-
-        .services-showcase {
-            padding: 4rem 2rem;
-            background: var(--white);
-            direction: rtl;
-        }
-
-        .services-title {
-            text-align: center;
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .services-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: #3498db;
-        }
-
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-item {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            text-align: center;
-            position: relative;
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: #3498db;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px auto 20px;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-        }
-
-        .service-icon i {
-            font-size: 2rem;
-            color: var(--white);
-        }
-
-        .service-details {
-            padding: 1.5rem;
-        }
-
-        .service-heading {
-            color: #2c3e50;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-description {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: right;
-        }
-
-        .service-list li {
-            color: #555;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .service-list li i {
-            color: #3498db;
-            margin-left: 0.8rem;
-            font-size: 1rem;
-            width: 20px;
-            text-align: center;
-        }
-
-        .Section-images {
-            text-align: center;
-            padding: 20px;
-        }
-
   
-        .Section-images img {
-            width: 90%;
-            height: auto;
-            max-width: 900px;
-            margin: 10px;
-            border-radius: 8px; /* Optional: Adds rounded corners to images */
-        }
-
-        @media (max-width: 768px) {
-            .services-container {
-                grid-template-columns: 1fr;
-            }
-
-            .services-title {
-                font-size: 2rem;
-            }
-
-            .service-details {
-                padding: 1rem;
-            }
-
-            .service-icon {
-                width: 60px;
-                height: 60px;
-                margin: 20px auto 15px;
-            }
-
-            .service-icon i {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .navbar.scrolled .hamburger span {
-                background: var(--black);
-                transition: all 0.6s ease;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 5%;
-                background: rgba(255, 255, 255, 0.9);
-                backdrop-filter: blur(10px);
-                border-radius: 10px;
-                padding: 1rem;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-
-            }
-
-            .nav-links a {
-                color: var(--black);
-                margin: 0.5rem 0;
-            }
-
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            /* Hamburger Animation */
-            .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
-            }
-            .nav-links a {
-                display: block;
-                padding: 10px;
-                text-align: center;
-                width: 100%;
-            }
-
-            .nav-links.show {
-                display: flex;
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: auto;
-            }
-            .whatsapp-btn {
-                bottom: 20px;
-                left: 20px;
-            }
-
-            .whatsapp-btn a {
-                width: 60px;
-                height: 60px;
-            }
-
-            .whatsapp-btn i {
-                font-size: 30px;
-            }
-
-            .circle.c1 {
-                width: 90px;
-                height: 90px;
-            }
-
-            .circle.c2 {
-                width: 75px;
-                height: 75px;
-            }
-
-            .circle.c3 {
-                width: 65px;
-                height: 65px;
-            }
-
-            .nav-links {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                position: absolute;
-                top: 60px;
-                gap: 0;
-                right: 10%;
-                background: white;
-                width: 80%;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                padding: 10px;
-                border-radius: 10px;
-                transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-                opacity: 0;
-                transform: translateY(-20px);
-                pointer-events: none;
-            }
-        }     
-
-        @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links,
-            .footer-social {
-                margin-top: 10px;
-            }
-
-            .footer-links a {
-                margin: 0 10px;
-                /* Reduce margin for smaller screens */
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: var(--black);
-                color: var(--white);
-            }
-
-            .navbar {
-                background: rgba(50, 50, 50, 0.1);
-            }
-
-            .navbar.scrolled .logo,
-            .navbar.scrolled .nav-links a {
-                color: var(--white) !important;
-            }
-
-            .hero {
-                background: linear-gradient(135deg, var(--blue), var(--darkblue));
-            }
-
-            .navbar.scrolled .hamburger span {
-                background: var(--blue);
-            }
-
-            .apps-preview {
-                background: var(--black);
-            }
-
-            #services {
-                background: var(--black);
-            }
-
-            .app-card {
-                background: var(--graydark);
-                color: var(--white);
-            }
-
-            .review-card {
-                background: var(--graydark);
-                color: var(--white);
-            }
-
-            .contact {
-                background: var(--black);
-            }
-
-            .form-group input,
-            .form-group textarea {
-                background: var(--graydark);
-                color: var(--white);
-            }
-
-            .footer {
-                background: linear-gradient(135deg, var(--blue), var(--darkblue));
-                color: var(--white);
-            }
-
-            .services-showcase {
-                background: var(--black);
-            }
-
-            .services-title {
-                color: var(--white);
-            }
-
-            .service-item {
-                background: var(--graydark);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            }
-
-            .service-heading {
-                color: var(--white);
-            }
-
-            .service-description {
-                color: #b0b0b0;
-            }
-
-            .service-list li {
-                color: #e0e0e0;
-            }
-
-            .service-icon {
-                background: var(--blue);
-                box-shadow: 0 5px 15px rgba(var(--blue-rgb), 0.3);
-            }
-
-            .service-list li i {
-                color: var(--blue);
-            }
-
-            .contact .form-group label {
-                color: var(--white);
-            }
-
-            .coming-soon {
-                color: var(--gray);
-
-            }
-        }
-
-        @media (prefers-color-scheme: dark) and (max-width: 768px) {
-            .navbar.scrolled .nav-links {
-                background: var(--blue);
-            }
-        }
-
-          
-    </style>
 </head>
 
 <body>
@@ -991,7 +51,7 @@
             <span></span>
         </div>
         <div class="nav-links" id="nav-links">
-            <a href="#apps">مشاريعنا</a>
+            <a href="#projects">مشاريعنا</a>
             <a href="#services">خدماتنا</a>
             <a href="#reviews">آراء العملاء</a>
             <a href="#contact">تواصل معنا</a>
@@ -1010,122 +70,269 @@
         <img src="images/aa.png" alt="تطوير تطبيقات الهاتف" class="bouncing-image">
     </div>
 </section>
-
-<!-- Apps Section -->
-<section id="apps" class="apps-preview" data-aos="fade-up">
-    <h2 class="section-title">إنجازات نفخر بها</h2>
-    <div class="apps-grid">
-        <div class="app-card" data-aos="zoom-in">
-            <img src="images/1.png" alt="Salam Space" class="app-image">
-            <div class="app-content">
-                <h3>تطبيق Salam Space</h3>
-                <p>منصة إسلامية متكاملة تجمع المحتوى الهادف</p>
-                <div class="download-links">
-                    <a href="https://play.google.com/store/apps/details?id=com.arab.salamspace" target="_blank" class="download-link">
-                        <img src="images/gp.png" alt="Android Download" class="download-icon">
-                    </a>
-                    <a href="https://apps.apple.com/app/id6740785701" target="_blank" class="download-link">
-                        <img src="images/ios.png" alt="iOS Download" class="download-icon">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="app-card" data-aos="zoom-in">
-            <img src="images/2.png" alt="تطبيقات المطاعم" class="app-image">
-            <div class="app-content">
-                <h3>حلول المطاعم</h3>
-                <p>منظومة متكاملة لإدارة وتطوير أعمال المطاعم</p>
-                <div class="download-links">
-                    <a href="https://play.google.com/store/apps/details?id=com.restauranttest.egypt" target="_blank" class="download-link">
-                        <img src="images/gp.png" alt="Android Download" class="download-icon">
-                    </a>
-                    <a class="download-link" onclick="showAlert('اب ستور')">
-                        <img src="images/ios.png" alt="iOS Download" class="download-icon">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="app-card" data-aos="zoom-in">
-            <img src="images/3.png" alt="تطبيقات مخصصة" class="app-image">
-            <div class="app-content">
-                <h3>حلول تقنية مخصصة</h3>
-                <p>نطور حلولاً تناسب احتياجات عملك بدقة</p>
-                  <p class="coming-soon">يتم النشر حسب متطلباتك</p>  
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="Section-images">
-    <h2 class="section-title">تصميمات حسب اختيارك</h2>
-    <img src="images/a1.png" alt="Image 1">
-    <img src="images/a2.png" alt="Image 2">
-    <img src="images/a3.png" alt="Image 3">
+<!-- About Us Section -->
+<section id="about" class="about-section" data-aos="fade-up">
+    <h2 class="section-title">من نحن</h2>
+    <p style="max-width: 800px; margin: 0 auto; font-size: 1.2rem; text-align: center; color: #f2f2f2;">
+        نحن فريق تقني متخصص في تطوير تطبيقات الهاتف والمواقع الإلكترونية، نؤمن بقوة الابتكار ونسعى لتقديم حلول رقمية متكاملة تلبي احتياجات عملائنا وتواكب أحدث التقنيات. خبرتنا تجمع بين الإبداع، الاحترافية، والالتزام بأعلى معايير الجودة لتحقيق نجاح مشاريعكم.
+    </p>
 </section>
 
 <!-- Services Section -->
 <section id="services" class="services-showcase" data-aos="fade-up">
 
-     <h2 class="section-title">خدماتنا</h2>
-    <div class="services-container">
-        <div class="service-item" data-aos="zoom-in">
-            <div class="service-icon">
-                <i class="fas fa-laptop-code"></i>
-            </div>
-            <div class="service-details">
-                <h3 class="service-heading">تطوير المواقع</h3>
-                <p class="service-description">نصمم مواقع عصرية تجمع بين الأداء المتميز والتصميم الجذاب</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-paint-brush"></i> تصميم عصري وجذاب</li>
-                    <li><i class="fas fa-mobile-alt"></i> توافق تام مع جميع الأجهزة</li>
-                    <li><i class="fas fa-tachometer-alt"></i> أداء وسرعة فائقة</li>
-                    <li><i class="fas fa-search"></i> تحسين محركات البحث</li>
-                    <li><i class="fas fa-shield-alt"></i> حماية متقدمة</li>
-                    <li><i class="fas fa-headset"></i> دعم فني مستمر</li>
-                    <li><i class="fas fa-chart-line"></i> تقارير أداء تفصيلية</li>
+    <h2 class="section-title">خدماتنا</h2>
+   <div class="services-container">
+       <div class="service-item" data-aos="zoom-in">
+           <div class="service-icon">
+               <i class="fas fa-laptop-code"></i>
+           </div>
+           <div class="service-details">
+               <h3 class="service-heading">تطوير المواقع</h3>
+               <p class="service-description">نصمم مواقع عصرية تجمع بين الأداء المتميز والتصميم الجذاب</p>
+               <ul class="service-list">
+                   <li><i class="fas fa-paint-brush"></i> تصميم عصري وجذاب</li>
+                   <li><i class="fas fa-mobile-alt"></i> توافق تام مع جميع الأجهزة</li>
+                   <li><i class="fas fa-tachometer-alt"></i> أداء وسرعة فائقة</li>
+                   <li><i class="fas fa-search"></i> تحسين محركات البحث</li>
+                   <li><i class="fas fa-shield-alt"></i> حماية متقدمة</li>
+                   <li><i class="fas fa-headset"></i> دعم فني مستمر</li>
+                   <li><i class="fas fa-chart-line"></i> تقارير أداء تفصيلية</li>
+               </ul>
+           </div>
+       </div>
+
+       <div class="service-item" data-aos="zoom-in">
+           <div class="service-icon">
+               <i class="fas fa-mobile-alt"></i>
+           </div>
+           <div class="service-details">
+               <h3 class="service-heading">تطوير التطبيقات</h3>
+               <p class="service-description">نطور تطبيقات ذكية تلبي احتياجات السوق وتواكب التطور التقني</p>
+               <ul class="service-list">
+                   <li><i class="fas fa-layer-group"></i> واجهات سهلة الاستخدام</li>
+                   <li><i class="fas fa-bolt"></i> أداء متميز وسرعة فائقة</li>
+                   <li><i class="fas fa-sync"></i> تحديثات مستمرة</li>
+                   <li><i class="fas fa-plug"></i> تكامل مع الأنظمة المختلفة</li>
+                   <li><i class="fas fa-shield-alt"></i> حماية وأمان متقدم</li>
+                   <li><i class="fas fa-chart-bar"></i> تحليلات تفصيلية</li>
+                   <li><i class="fas fa-life-ring"></i> دعم فني شامل</li>
+               </ul>
+           </div>
+       </div>
+
+       <div class="service-item" data-aos="zoom-in">
+           <div class="service-icon">
+               <i class="fas fa-palette"></i>
+           </div>
+           <div class="service-details">
+               <h3 class="service-heading">التصميم الإبداعي</h3>
+               <p class="service-description">نبتكر تصاميم عصرية تعزز هوية علامتك التجارية</p>
+               <ul class="service-list">
+                   <li><i class="fas fa-fingerprint"></i> هوية بصرية متكاملة</li>
+                   <li><i class="fas fa-star"></i> تصميم شعارات مميزة</li>
+                   <li><i class="fas fa-desktop"></i> واجهات مستخدم عصرية</li>
+                   <li><i class="fas fa-bullhorn"></i> تصاميم تسويقية احترافية</li>
+                   <li><i class="fas fa-magic"></i> تجربة مستخدم تفاعلية</li>
+                   <li><i class="fas fa-file-alt"></i> ملفات قابلة للتعديل</li>
+                   <li><i class="fas fa-globe"></i> معايير تصميم عالمية</li>
+               </ul>
+           </div>
+       </div>
+   </div>
+</section>
+
+<!-- Projects Section (Added) -->
+<section id="projects" class="apps-preview" data-aos="fade-up">
+    <h2 class="section-title">مشاريع مميزة</h2>
+    <div class="apps-grid">
+        <!-- Project 1 -->
+        <div class="app-card" data-aos="zoom-in">
+            <img src="images/61.png" alt="Islamic App" class="app-image">
+            <div class="app-content">
+                <h3>Salam Space</h3>
+                <p>تطبيق إسلامي شامل بواجهات متعددة</p>
+                <ul>
+                    <li>تطبيق إسلامي متكامل بواجهات متعددة</li>
+                    <li>مجاني بدون إعلانات</li>
+                    <li>مجموعة أدوات إسلامية كاملة</li>
+                    <li>مواقيت الصلاة، اتجاه القبلة، والقرآن الكريم</li>
+                    <li>متوفر على App Store و Google Play</li>
                 </ul>
+                <div class="download-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.arab.salamspace" target="_blank" class="download-link">
+                        <img src="images/gp.png" alt="Android Download" class="download-icon">
+                    </a>
+                    <a href="https://apps.apple.com/app/id6746654497" target="_blank" class="download-link">
+                        <img src="images/ios.png" alt="iOS Download" class="download-icon">
+                    </a>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <span class="project-tag">Islamic Tech</span>
+                    <span class="project-tag">Cross-platform</span>
+                    <span class="project-tag">Qiblah</span>
+                    <span class="project-tag">Mobile App</span>
+                    <span class="project-tag">Prayer Times</span>
+                </div>
             </div>
         </div>
-
-        <div class="service-item" data-aos="zoom-in">
-            <div class="service-icon">
-                <i class="fas fa-mobile-alt"></i>
-            </div>
-            <div class="service-details">
-                <h3 class="service-heading">تطوير التطبيقات</h3>
-                <p class="service-description">نطور تطبيقات ذكية تلبي احتياجات السوق وتواكب التطور التقني</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-layer-group"></i> واجهات سهلة الاستخدام</li>
-                    <li><i class="fas fa-bolt"></i> أداء متميز وسرعة فائقة</li>
-                    <li><i class="fas fa-sync"></i> تحديثات مستمرة</li>
-                    <li><i class="fas fa-plug"></i> تكامل مع الأنظمة المختلفة</li>
-                    <li><i class="fas fa-shield-alt"></i> حماية وأمان متقدم</li>
-                    <li><i class="fas fa-chart-bar"></i> تحليلات تفصيلية</li>
-                    <li><i class="fas fa-life-ring"></i> دعم فني شامل</li>
+        <!-- Project 2 -->
+        <div class="app-card" data-aos="zoom-in">
+            <img src="images/62.png" alt="Drive Now Lebanon" class="app-image">
+            <div class="app-content">
+                <h3>Drive Now</h3>
+                <p>تطبيق تاكسي شبيه أوبر للبنان</p>
+                <ul>
+                    <li>خدمة تاكسي فورية للبنان</li>
+                    <li>تتبع الرحلات وحجزها في الوقت الحقيقي</li>
+                    <li>نظام مطابقة السائقين والركاب</li>
+                    <li>تكامل دفع آمن</li>
+                    <li>متوفر على App Store و Google Play</li>
                 </ul>
+                <div class="download-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.drivenow.app" target="_blank" class="download-link">
+                        <img src="images/gp.png" alt="Android Download" class="download-icon">
+                    </a>
+                    <a href="https://apps.apple.com/app/id6746598010" target="_blank" class="download-link">
+                        <img src="images/ios.png" alt="iOS Download" class="download-icon">
+                    </a>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <span class="project-tag">Ride-sharing</span>
+                    <span class="project-tag">Real-time</span>
+                    <span class="project-tag">Lebanon</span>
+                    <span class="project-tag">Location</span>
+                    <span class="project-tag">Taxi</span>
+                </div>
             </div>
         </div>
-
-        <div class="service-item" data-aos="zoom-in">
-            <div class="service-icon">
-                <i class="fas fa-palette"></i>
-            </div>
-            <div class="service-details">
-                <h3 class="service-heading">التصميم الإبداعي</h3>
-                <p class="service-description">نبتكر تصاميم عصرية تعزز هوية علامتك التجارية</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-fingerprint"></i> هوية بصرية متكاملة</li>
-                    <li><i class="fas fa-star"></i> تصميم شعارات مميزة</li>
-                    <li><i class="fas fa-desktop"></i> واجهات مستخدم عصرية</li>
-                    <li><i class="fas fa-bullhorn"></i> تصاميم تسويقية احترافية</li>
-                    <li><i class="fas fa-magic"></i> تجربة مستخدم تفاعلية</li>
-                    <li><i class="fas fa-file-alt"></i> ملفات قابلة للتعديل</li>
-                    <li><i class="fas fa-globe"></i> معايير تصميم عالمية</li>
+        <!-- Project 3 -->
+        <div class="app-card" data-aos="zoom-in">
+            <img src="images/63.png" alt="TranaQar" class="app-image">
+            <div class="app-content">
+                <h3>TranaQar</h3>
+                <p>منصة عقارية للسعودية</p>
+                <ul>
+                    <li>منصة عقارية متكاملة</li>
+                    <li>نظام إدارة العقارات والإعلانات</li>
+                    <li>تأجير وبيع المباني</li>
+                    <li>خيارات بحث وتصفية متقدمة</li>
+                    <li>لوحة تحكم مخصصة للإدارة</li>
                 </ul>
+                <div class="download-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.tranaqar.app" target="_blank" class="download-link">
+                        <img src="images/gp.png" alt="Android Download" class="download-icon">
+                    </a>
+                    <a href="https://apps.apple.com/app/id6746598765" target="_blank" class="download-link">
+                        <img src="images/ios.png" alt="iOS Download" class="download-icon">
+                    </a>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <span class="project-tag">Saudi Arabia</span>
+                    <span class="project-tag">Real Estate</span>
+                    <span class="project-tag">E-commerce</span>
+                    <span class="project-tag">Property</span>
+                    <span class="project-tag">Rental</span>
+                </div>
+            </div>
+        </div>
+        <!-- Project 4 -->
+        <div class="app-card" data-aos="zoom-in">
+            <img src="images/64.png" alt="Single Restaurant App" class="app-image">
+            <div class="app-content">
+                <h3>Single Restaurant App</h3>
+                <p>تطبيق توصيل طعام مخصص لمطعم واحد</p>
+                <ul>
+                    <li>تطبيق توصيل طعام لمطعم واحد</li>
+                    <li>إدارة القائمة وتتبع الطلبات</li>
+                    <li>تحديثات حالة التوصيل في الوقت الحقيقي</li>
+                    <li>نظام ولاء العملاء</li>
+                    <li>تكامل الدفع وإدارة الطلبات</li>
+                </ul>
+                <div class="download-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.restauranttest.egypt" target="_blank" class="download-link">
+                        <img src="images/gp.png" alt="Android Download" class="download-icon">
+                    </a>
+                    <a href="https://apps.apple.com/app/id6746598954" target="_blank" class="download-link">
+                        <img src="images/ios.png" alt="iOS Download" class="download-icon">
+                    </a>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <span class="project-tag">Food Delivery</span>
+                    <span class="project-tag">Restaurant</span>
+                    <span class="project-tag">E-commerce</span>
+                    <span class="project-tag">Ordering</span>
+                    <span class="project-tag">Delivery</span>
+                </div>
+            </div>
+        </div>
+        <!-- Project 5 -->
+        <div class="app-card" data-aos="zoom-in">
+            <img src="images/65.png" alt="Multi Restaurant Platform" class="app-image">
+            <div class="app-content">
+                <h3>Multi Restaurant App</h3>
+                <p>منصة متكاملة لإدارة عدة مطاعم</p>
+                <ul>
+                    <li>نظام متكامل لتوصيل الطعام</li>
+                    <li>إدارة عدة مطاعم</li>
+                    <li>تتبع وإدارة الطلبات المتقدمة</li>
+                    <li>لوحة تحكم تحليلات للمطاعم</li>
+                    <li>إدارة العملاء والتوصيل</li>
+                </ul>
+                <div class="download-links">
+                    <a href="videos/video_2.mov" target="_blank" class="show-link">
+                        <i class="fas fa-video me-2"></i>
+                        <span>عرض تجريبي</span>
+                    </a>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <span class="project-tag">Multi-Restaurant</span>
+                    <span class="project-tag">Management</span>
+                    <span class="project-tag">Analytics</span>
+                    <span class="project-tag">Dashboard</span>
+                    <span class="project-tag">Platform</span>
+                </div>
+            </div>
+        </div>
+        <!-- Project 6 -->
+        <div class="app-card" data-aos="zoom-in">
+            <img src="images/66.png" alt="Smart Home System" class="app-image">
+            <div class="app-content">
+                <h3>Smart Home System</h3>
+                <p>حل أتمتة المنزل الذكي المعتمد على إنترنت الأشياء</p>
+                <ul>
+                    <li>حل أتمتة المنزل الذكي المعتمد على إنترنت الأشياء</li>
+                    <li>تصميم PCB مخصص وتكامل Arduino</li>
+                    <li>واجهة تحكم عبر تطبيق الهاتف</li>
+                    <li>نظام إدارة الأجهزة الذكية</li>
+                    <li>مراقبة الطاقة والأتمتة</li>
+                </ul>
+                <div class="download-links">
+                    <a href="videos/video.mov" target="_blank" class="show-link">
+                        <i class="fas fa-video me-2"></i>
+                        <span>عرض تجريبي</span>
+                    </a>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <span class="project-tag">IoT</span>
+                    <span class="project-tag">Automation</span>
+                    <span class="project-tag">Home</span>
+                    <span class="project-tag">PCB</span>
+                    <span class="project-tag">Arduino</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
+<!-- End Projects Section -->
+
+<section class="Section-images" data-aos="fade-up">
+    <h2 class="section-title">تصميمات حسب اختيارك</h2>
+    <img src="images/a1.png" alt="Image 1" data-aos="fade-up">
+    <img src="images/a2.png" alt="Image 2" data-aos="fade-up">
+    <img src="images/a3.png" alt="Image 3" data-aos="fade-up">
+</section>
+
 
 <!-- Reviews Section -->
 <section id="reviews" class="reviews" data-aos="fade-up">
@@ -1153,15 +360,15 @@
         <form id="contactForm">
             <div class="form-group">
                 <label for="name">الاسم</label>
-                <input type="text" id="name" required>
+                <input type="text" id="name" required placeholder="اكتب اسمك هنا">
             </div>
             <div class="form-group">
                 <label for="phone">رقم الهاتف</label>
-                <input type="tel" id="phone" required>
+                <input type="tel" id="phone" required placeholder="أدخل رقم هاتفك">
             </div>
             <div class="form-group">
                 <label for="message">كيف يمكننا مساعدتك؟</label>
-                <textarea id="message" rows="5" required></textarea>
+                <textarea id="message" rows="5" required placeholder="اكتب رسالتك أو استفسارك هنا"></textarea>
             </div>
             <button type="submit" class="submit-btn">إرسال الرسالة</button>
         </form>
@@ -1182,7 +389,7 @@
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-links">
-            <a href="#apps">مشاريعنا</a>
+            <a href="#projects">مشاريعنا</a>
             <a href="#services">خدماتنا</a>
             <a href="#reviews">آراء العملاء</a>
             <a href="#contact">تواصل معنا</a>
@@ -1198,10 +405,10 @@
             </p>
         </div>
         <div class="footer-social">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a ><i class="fab fa-facebook"></i></a>
+            <a ><i class="fab fa-twitter"></i></a>
+            <a ><i class="fab fa-instagram"></i></a>
+            <a ><i class="fab fa-linkedin"></i></a>
         </div>
     </div>
     <p class="footer-text">© 2025 Tatpeeq.tech - جميع الحقوق محفوظة.</p>
